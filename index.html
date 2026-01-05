@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bubblegum | Barber Shop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <span class="logo">✂️</span>
+      <h1>Bubblegum</h1>
+    </div>
+    <nav class="nav">
+      <button data-route="home" class="nav-link active">Home</button>
+      <button data-route="services" class="nav-link">Services</button>
+      <button data-route="shop" class="nav-link">Shop</button>
+      <button data-route="cart" class="nav-link">Cart</button>
+      <button data-route="booking" class="nav-link">Booking</button>
+      <button data-route="contact" class="nav-link">Contact</button>
+    </nav>
+  </header>
+
+  <main id="app">
+    <!-- Home -->
+    <section id="home" class="view show">
+      <div class="hero">
+        <h2>Sharp cuts. Clean lines. Real swagger.</h2>
+        <p>Precision barbering—book a chair or shop our grooming essentials.</p>
+        <div class="cta">
+          <button data-route="booking" class="btn primary">Book appointment</button>
+          <button data-route="shop" class="btn">Shop products</button>
+        </div>
+      </div>
+      <div class="features">
+        <div class="feature-card">
+          <h3>Walk‑ins welcome</h3>
+          <p>Pop in or secure your slot online in seconds.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Premium products</h3>
+          <p>Curated for texture, hold, and healthy hair.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Local & reputable</h3>
+          <p>Cape Town craft with a reputation for detail.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="view">
+      <h2>Services & pricing</h2>
+      <div id="services-list" class="cards"></div>
+    </section>
+
+    <!-- Shop -->
+    <section id="shop" class="view">
+      <div class="shop-header">
+        <h2>Grooming products</h2>
+        <div class="shop-actions">
+          <input id="shop-search" type="search" placeholder="Search pomade, beard oil..." />
+          <select id="shop-filter">
+            <option value="all">All</option>
+            <option value="styling">Styling</option>
+            <option value="beard">Beard</option>
+            <option value="care">Care</option>
+          </select>
+        </div>
+      </div>
+      <div id="products-grid" class="grid"></div>
+    </section>
+
+    <!-- Cart -->
+    <section id="cart" class="view">
+      <h2>Your cart</h2>
+      <div id="cart-items"></div>
+      <div id="cart-summary" class="cart-summary">
+        <p><strong>Subtotal:</strong> <span id="cart-subtotal">R0.00</span></p>
+        <p><strong>Shipping:</strong> <span id="cart-shipping">R50.00</span></p>
+        <p><strong>Total:</strong> <span id="cart-total">R50.00</span></p>
+        <div class="cart-actions">
+          <button id="cart-clear" class="btn">Clear cart</button>
+          <button id="cart-checkout" class="btn primary">Checkout</button>
+        </div>
+      </div>
+      <p class="note">Demo checkout: shows confirmation and clears cart. Integrate PayFast/Yoco later.</p>
+    </section>
+
+    <!-- Booking -->
+    <section id="booking" class="view">
+      <h2>Book an appointment</h2>
+      <form id="booking-form" class="form">
+        <div class="grid-2">
+          <label>
+            <span>Full name</span>
+            <input name="name" type="text" required />
+          </label>
+          <label>
+            <span>Phone</span>
+            <input name="phone" type="tel" placeholder="+27 ..." required />
+          </label>
+        </div>
+        <div class="grid-2">
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" required />
+          </label>
+          <label>
+            <span>Date</span>
+            <input name="date" type="date" required />
+          </label>
+        </div>
+        <div class="grid-2">
+          <label>
+            <span>Time</span>
+            <input name="time" type="time" required />
+          </label>
+          <label>
+            <span>Service</span>
+            <select name="service" required id="booking-service"></select>
+          </label>
+        </div>
+        <label>
+          <span>Notes</span>
+          <textarea name="notes" rows="3" placeholder="Fade, beard trim, skin concerns..."></textarea>
+        </label>
+        <button class="btn primary" type="submit">Confirm booking</button>
+        <p class="note">Demo booking: stores locally and shows confirmation. Hook to Calendly/Google Calendar next.</p>
+      </form>
+      <div id="booking-confirmation" class="alert success hidden"></div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="view">
+      <h2>Contact & location</h2>
+      <div class="contact-grid">
+        <form id="contact-form" class="form">
+          <label>
+            <span>Your name</span>
+            <input name="name" type="text" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" required />
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button class="btn primary" type="submit">Send message</button>
+          <p class="note">Demo contact: shows success. Integrate EmailJS or server later.</p>
+          <div id="contact-confirmation" class="alert success hidden"></div>
+        </form>
+        <div class="location">
+          <h3>Barber Shop</h3>
+          <p>Cape Gate</p>
+          <p><strong>Hours:</strong> Mon–Sat 9:00–18:00 | Sun 10:00–14:00</p>
+          <div class="map-embed">
+            <!-- Replace src with your Google Maps embed -->
+            <iframe
+              title="Shop location"
+              src="https://maps.google.com/maps?q=Pinehurst%20Durbanville&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Bubblegum — Crafted in Cape Town</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
