@@ -93,7 +93,7 @@
      BOOK APPOINTMENT
     </button>
 
-    <!-- Booking -->
+    <!-- Booking 
     <section id="booking" class="view">
       <h2>Book an appointment</h2>
       <form id="booking-form" class="form">
@@ -135,7 +135,26 @@
         <p class="note">Demo booking: stores locally and shows confirmation. Hook to Calendly/Google Calendar next.</p>
       </form>
       <div id="booking-confirmation" class="alert success hidden"></div>
-    </section>
+    </section> -->
+
+    <!-- Booking Section -->
+<section id="booking-section" style="padding: 2rem; background-color: #f9f9f9;">
+  <h2>Book Your Appointment</h2>
+  <form id="booking-form">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="date">Select Date:</label><br>
+    <input type="date" id="date" name="date" required><br><br>
+
+    <label for="time">Select Time:</label><br>
+    <select id="time" name="time" required></select><br><br>
+
+    <button type="submit">Confirm Booking</button>
+  </form>
+  <p id="confirmation" style="margin-top: 1rem;"></p>
+</section>
+
 
     <!-- Contact -->
     <section id="contact" class="view">
@@ -182,5 +201,6 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
