@@ -193,6 +193,44 @@ document.getElementById("cart-checkout").addEventListener("click", () => {
 document.getElementById("booking-form").addEventListener("submit", confirmBooking);
 document.getElementById("contact-form").addEventListener("submit", submitContact);
 
+const hours = {
+  Sunday: ["09:00", "10:00", "11:00", "12:00"],
+  Monday: ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+  Tuesday: ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+  Wednesday: ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+  Thursday: ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+  Friday: ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+  Saturday: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00"]
+};
+
+document.getElementById("date").addEventListener("change", function () {
+  const selectedDate = new Date(this.value);
+  const day = selectedDate.toLocaleDateString("en-ZA", { weekday: "long" });
+  const timeSelect = document.getElementById("time");
+  timeSelect.innerHTML = "";
+
+  if (hours[day]) {
+    hours[day].forEach(time => {
+      const option = document.createElement("option");
+      option.value = time;
+      option.textContent = time;
+      timeSelect.appendChild(option);
+    });
+  } else {
+    const option = document.createElement("option");
+    option.textContent = "Closed";
+    timeSelect.appendChild(option);
+  }
+});
+
+document.getElementById("booking-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+  document.getElementById("confirmation").textContent = `Thanks ${name}, your appointment is booked for ${date} at ${time}.`;
+});
+
 // Misc
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -200,3 +238,4 @@ document.getElementById("year").textContent = new Date().getFullYear();
 setRoute("home");
 renderServices();
 renderProducts();
+
