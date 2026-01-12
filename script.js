@@ -7,14 +7,6 @@ const services = [
   { id: "svc_kid", name: "Kids Cut", desc: "Sharp and age-appropriate.", price: 160 }
 ];
 
-const products = [
-  { id: "prd_pomade", name: "Matte Pomade", cat: "styling", price: 180, img: "https://images.unsplash.com/photo-1603252109303-2751441dd157" },
-  { id: "prd_clay", name: "Texture Clay", cat: "styling", price: 190, img: "https://images.unsplash.com/photo-1512496015851-a80348e3fcff" },
-  { id: "prd_oil", name: "Cedar Beard Oil", cat: "beard", price: 220, img: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f" },
-  { id: "prd_balm", name: "Beard Balm Medium Hold", cat: "beard", price: 210, img: "https://images.unsplash.com/photo-1542831371-dfce06d2fc37" },
-  { id: "prd_shampoo", name: "Gentle Shampoo", cat: "care", price: 160, img: "https://images.unsplash.com/photo-1585650258291-839f94ca2db0" },
-  { id: "prd_conditioner", name: "Hydrate Conditioner", cat: "care", price: 170, img: "https://images.unsplash.com/photo-1604881987511-cb155ab8ecb3" }
-];
 
 // State
 const state = {
@@ -32,9 +24,7 @@ const setRoute = (route) => {
   document.querySelectorAll(".nav-link").forEach(b => {
     b.classList.toggle("active", b.dataset.route === route);
   });
-  if (route === "cart") renderCart();
   if (route === "services") renderServices();
-  if (route === "shop") renderProducts();
   if (route === "booking") renderBookingServices();
 };
 
@@ -49,29 +39,6 @@ function renderServices() {
       <button class="btn" onclick="prefillBooking('${s.id}')">Book this</button>
     </div>
   `).join("");
-}
-
-// Render products
-function productCard(p) {
-  return `
-    <div class="product card">
-      <img src="${p.img}" alt="${p.name}" />
-      <h3>${p.name}</h3>
-      <p class="muted">Category: ${p.cat}</p>
-      <p class="price">${formatR(p.price)}</p>
-      <button class="btn primary" onclick="addToCart('${p.id}')">Add to cart</button>
-    </div>
-  `;
-}
-function renderProducts() {
-  const q = document.getElementById("shop-search").value.trim().toLowerCase();
-  const cat = document.getElementById("shop-filter").value;
-  const list = products.filter(p =>
-    (cat === "all" || p.cat === cat) &&
-    (q === "" || p.name.toLowerCase().includes(q))
-  );
-  document.getElementById("products-grid").innerHTML =
-    list.map(productCard).join("") || `<p>No products match your search.</p>`;
 }
 
 // Booking logic
@@ -183,6 +150,6 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // Initial render
 setRoute("home");
 renderServices();
-renderProducts();
+
 
 
