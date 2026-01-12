@@ -74,60 +74,6 @@ function renderProducts() {
     list.map(productCard).join("") || `<p>No products match your search.</p>`;
 }
 
-// Cart logic
-function addToCart(id) {
-  const item = products.find(p => p.id === id);
-  const existing = state.cart.find(c => c.id === id);
-  if (existing) existing.qty += 1;
-  else state.cart.push({ id, name: item.name, price: item.price, img: item.img, qty: 1 });
-  saveCart();
-  renderCart();
-  setRoute("cart");
-}
-
-function changeQty(id, delta) {
-  const target = state.cart.find(c => c.id === id);
-  if (!target) return;
-  target.qty = Math.max(1, target.qty + delta);
-  saveCart();
-  renderCart();
-}
-
-function removeItem(id) {
-  state.cart = state.cart.filter(c => c.id !== id);
-  saveCart();
-  renderCart();
-}
-
-function renderCart() {
-  const wrap = document.getElementById("cart-items");
-  if (state.cart.length === 0) {
-    wrap.innerHTML = `<p>Your cart is empty.</p>`;
-  } else {
-    wrap.innerHTML = state.cart.map(c => `
-      <div class="cart-item">
-        <img src="${c.img}" alt="${c.name}" />
-        <div>
-          <strong>${c.name}</strong>
-          <p>${formatR(c.price)} each</p>
-          <div class="qty">
-            <button class="btn" onclick="changeQty('${c.id}', -1)">−</button>
-            <span>${c.qty}</span>
-            <button class="btn" onclick="changeQty('${c.id}', 1)">+</button>
-            <button class="btn" onclick="removeItem('${c.id}')">Remove</button>
-          </div>
-        </div>
-        <div><strong>${formatR(c.price * c.qty)}</strong></div>
-      </div>
-    `).join("");
-  }
-  const subtotal = state.cart.reduce((sum, c) => sum + c.price * c.qty, 0);
-  const shipping = state.cart.length ? 50 : 0;
-  document.getElementById("cart-subtotal").textContent = formatR(subtotal);
-  document.getElementById("cart-shipping").textContent = formatR(shipping);
-  document.getElementById("cart-total").textContent = formatR(subtotal + shipping);
-}
-
 // Booking logic
 function renderBookingServices() {
   const select = document.getElementById("booking-service");
@@ -238,4 +184,5 @@ document.getElementById("year").textContent = new Date().getFullYear();
 setRoute("home");
 renderServices();
 renderProducts();
+
 
