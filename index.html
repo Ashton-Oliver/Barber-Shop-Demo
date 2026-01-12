@@ -15,8 +15,6 @@
     <nav class="nav">
       <button data-route="home" class="nav-link active">Home</button>
       <button data-route="services" class="nav-link">Services</button>
-      <button data-route="shop" class="nav-link">Shop</button>
-      <button data-route="cart" class="nav-link">Cart</button>
       <button data-route="booking" class="nav-link">Booking</button>
       <button data-route="contact" class="nav-link">Contact</button>
     </nav>
@@ -55,23 +53,7 @@
       <div id="services-list" class="cards"></div>
     </section>
 
-    <!-- Shop -->
-    <section id="shop" class="view">
-      <div class="shop-header">
-        <h2>Grooming products</h2>
-        <div class="shop-actions">
-          <input id="shop-search" type="search" placeholder="Search pomade, beard oil..." />
-          <select id="shop-filter">
-            <option value="all">All</option>
-            <option value="styling">Styling</option>
-            <option value="beard">Beard</option>
-            <option value="care">Care</option>
-          </select>
-        </div>
-      </div>
-      <div id="products-grid" class="grid"></div>
-    </section>
-    
+  
     <!-- BOOK APPOINTMENT Button -->
     <button onclick="document.getElementById('booking-section').scrollIntoView({ behavior: 'smooth' });">
      BOOK APPOINTMENT
@@ -185,6 +167,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
