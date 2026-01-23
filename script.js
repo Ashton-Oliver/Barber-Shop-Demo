@@ -1,46 +1,3 @@
-// Data
-const services = [
-  { id: "svc_fade", name: "Skin Fade", desc: "Precision taper, razor-finished.", price: 250 },
-  { id: "svc_classic", name: "Classic Cut", desc: "Clean, timeless silhouette.", price: 200 },
-  { id: "svc_beard", name: "Beard Trim & Shape", desc: "Line-up, sculpt, nourish.", price: 150 },
-  { id: "svc_combo", name: "Cut + Beard Combo", desc: "Full refresh package.", price: 320 },
-  { id: "svc_kid", name: "Kids Cut", desc: "Sharp and age-appropriate.", price: 160 }
-];
-
-
-// State
-const state = {
-  route: "home",
-  cart: JSON.parse(localStorage.getItem("cart") || "[]")
-};
-
-// Utils
-const formatR = (n) => `R${n.toFixed(2)}`;
-const saveCart = () => localStorage.setItem("cart", JSON.stringify(state.cart));
-const setRoute = (route) => {
-  state.route = route;
-  document.querySelectorAll(".view").forEach(v => v.classList.remove("show"));
-  document.getElementById(route).classList.add("show");
-  document.querySelectorAll(".nav-link").forEach(b => {
-    b.classList.toggle("active", b.dataset.route === route);
-  });
-  if (route === "services") renderServices();
-  if (route === "booking") renderBookingServices();
-};
-
-// Render services
-function renderServices() {
-  const wrap = document.getElementById("services-list");
-  wrap.innerHTML = services.map(s => `
-    <div class="card">
-      <h3>${s.name}</h3>
-      <p>${s.desc}</p>
-      <p class="price">${formatR(s.price)}</p>
-      <button class="btn" onclick="prefillBooking('${s.id}')">Book this</button>
-    </div>
-  `).join("");
-}
-
 // Booking logic
 function renderBookingServices() {
   const select = document.getElementById("booking-service");
@@ -150,6 +107,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // Initial render
 setRoute("home");
 renderServices();
+
 
 
 
