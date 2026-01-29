@@ -12,58 +12,20 @@
       <span class="logo">✂️</span>
       <h1>Bubblegum</h1>
     </div>
-    <nav class="nav">
-      <button data-route="home" class="nav-link active">Home</button>
-      <button data-route="booking" class="nav-link">Booking</button>
-      <button data-route="contact" class="nav-link">Contact</button>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="booking.html" class="nav-link">Booking</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
   </header>
 
-  <main id="app">
-    <!-- Home -->
+  <main>
     <section id="home" class="view show">
       <div class="hero">
         <h2>Sharp cuts. Clean lines. Real swagger.</h2>
         <p>Precision barbering—book a chair or shop our grooming essentials.</p>
         <div class="cta">
-          <button data-route="booking" class="btn primary">Book appointment</button>
-        </div>
-      </div>
-
-    <!-- Contact -->
-    <section id="contact" class="view">
-      <h2>Contact & location</h2>
-      <div class="contact-grid">
-        <form id="contact-form" class="form">
-          <label>
-            <span>Your name</span>
-            <input name="name" type="text" required />
-          </label>
-          <label>
-            <span>Email</span>
-            <input name="email" type="email" required />
-          </label>
-          <label>
-            <span>Message</span>
-            <textarea name="message" rows="4" required></textarea>
-          </label>
-          <button class="btn primary" type="submit">Send message</button>
-          <p class="note">Demo contact: shows success. Integrate EmailJS or server later.</p>
-          <div id="contact-confirmation" class="alert success hidden"></div>
-        </form>
-        <div class="location">
-          <h3>Barber Shop</h3>
-          <p>Cape Gate</p>
-          <p><strong>Hours:</strong> Mon–Sat 9:00–18:00 | Sun 10:00–14:00</p>
-          <div class="map-embed">
-            
-            <!-- Replace src with your Google Maps embed -->
-            <iframe
-              title="Shop location"
-              src="https://www.google.com/maps/place/Bubblegum+Barber+Shop/@-33.8541883,18.6903204,17z/data=!3m1!4b1!4m6!3m5!1s0x1dcc513de91dcaa5:0x950ec7a31d8bcc31!8m2!3d-33.8541928!4d18.6928953!16s%2Fg%2F11rggpt6rx?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D"
-              loading="lazy"
-            ></iframe>
-          </div>
+          <a href="booking.html" class="btn primary">Book appointment</a>
         </div>
       </div>
     </section>
@@ -76,6 +38,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
