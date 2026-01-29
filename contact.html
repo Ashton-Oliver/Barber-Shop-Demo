@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bubblegum | Contact</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <span class="logo">✂️</span>
+      <h1>Bubblegum</h1>
+    </div>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="booking.html" class="nav-link">Booking</a>
+      <a href="contact.html" class="nav-link active">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="contact" class="view show">
+      <h2>Contact & location</h2>
+      <div class="contact-grid">
+        <form id="contact-form" class="form" aria-label="Contact form">
+          <label><span>Your name</span><input name="name" type="text" required /></label>
+          <label><span>Email</span><input name="email" type="email" required /></label>
+          <label><span>Message</span><textarea name="message" rows="4" required></textarea></label>
+          <button class="btn primary" type="submit">Send message</button>
+          <p class="note">Demo contact: shows success. Integrate EmailJS or server later.</p>
+          <div id="contact-confirmation" class="alert success hidden" aria-live="polite"></div>
+        </form>
+        <div class="location">
+          <h3>Barber Shop</h3>
+          <p>Cape Gate</p>
+          <p><strong>Hours:</strong> Mon–Sat 9:00–18:00 | Sun 10:00–14:00</p>
+          <div class="map-embed">
+          <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.123456789!2d18.6903204!3d-33.8541883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc513de91dcaa5%3A0x950ec7a31d8bcc31!2sBubblegum%20Barber%20Shop!5e0!3m2!1sen!2sza!4v1700000000000"
+          width="100%"
+          height="240"
+          style="border:0; border-radius:10px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Bubblegum — Crafted in Cape Town</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
